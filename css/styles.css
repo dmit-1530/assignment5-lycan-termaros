@@ -1,0 +1,379 @@
+body {
+    background: linear-gradient(90deg, #46A098 0%, #54A654 100%);
+    font-family: "PT Sans", sans-serif;
+}
+
+/* Helper Classes */
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shopping-cart {
+    width: auto;
+    height: 2.5rem;
+}
+
+/* *************** header & nav ****************** */
+/* Step: 1 Style the default/showing state. Starting with the mobile view, style the layout and links for how they will look when visible */
+
+header {
+    background-color: #9846A0;
+    color: white;
+    /* Not going to change color because needs to be added to "a" */
+    padding: 1rem;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    /* allows the clickable area to take up the full width and height of the li */
+    display: block;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    width: 100%;
+    padding: 0.75rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn a {
+    background-color: #9846A0;
+    text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:active {
+    background-color: #A258A9;
+    color: unset;
+    border-radius: 0.5rem;
+}
+
+.toggle-btn {
+    background: #9846A0;
+    border: none;
+    outline: none;
+}
+
+.toggle-btn:hover {
+    cursor: pointer;
+}
+
+.toggle-btn svg rect {
+    fill: #FCBF49;
+}
+
+.toggle-btn:hover svg rect {
+    fill: #F77F00;
+}
+
+.menu li {
+    /* the extra space from the additional line height, makes this a larger area and vertically centers the text */
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+header nav {
+    /* style this for how it will look overlapped the main content */
+    /* this element does not have a parent container that is positioned relative, therefore it's positioned in relationship to the browser screen */
+    position: absolute;
+    top: 4.125rem;
+    left: 0;
+    width: 100vw;
+    background-color: #9846A0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+.inner-container {
+    text-align: left;
+}
+
+.inner-container p {
+    font-size: 1rem;
+}
+
+h1 {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+}
+
+p {
+    padding-bottom: 2.5rem;
+}
+
+.show-nav {
+    max-height: 100vh;
+}
+
+/* ************************* section ****************** */
+
+section {
+    padding: 3.125rem;
+    text-align: center;
+}
+
+section p {
+    color: white;
+    font-size: 1.777rem;
+}
+
+section h1 {
+    color: #FFF;
+    font-family: "PT Sans", sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+section span {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+
+span {
+    color: #fff;
+    font-weight: bold;
+    user-select: none;
+    border-radius: .3125rem;
+}
+
+a:last-of-type {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    background-color: #9846A0;
+    padding: 0.75rem 1.5rem;
+}
+
+.btn:hover,
+.btn:focus,
+.bth a:focus {
+    background-color: #793880;
+    cursor: pointer;
+}
+
+/* Step 4: add a media query and show the nav by default on larger screens */
+
+/* Media Query */
+@media screen and (min-width: 780px) {
+    .inner-container {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+    }
+
+    header {
+        padding: 1rem 0;
+    }
+
+    .toggle-btn {
+        display: none;
+        order: -1;
+    }
+
+    header nav {
+        position: static;
+        /* Return nav to html from position absolute */
+        width: 100%;
+        max-height: unset;
+        overflow: visible;
+        order: 3;
+        margin-top: 1rem;
+        padding: 0 1rem;
+    }
+
+    header .inner-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .shopping-cart {
+        order: 2;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 1.2rem;
+        margin: 0 auto;
+        padding: 0;
+        width: auto;
+    }
+
+    .menu li {
+        width: auto;
+    }
+
+    .menu a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+        white-space: nowrap;
+        border: none;
+    }
+
+    .inner-container>h1,
+    .inner-container>p {
+        padding: 0 1rem;
+        text-align: left;
+    }
+
+    section {
+        padding: 4rem 2rem;
+        text-align: left;
+    }
+
+    section h1 {
+        font-size: 3rem;
+        line-height: 1.05;
+        max-width: 30rem;
+        margin: 0 0 1.25rem;
+    }
+
+    section p {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        max-width: 34rem;
+        margin: 0 0 2rem;
+    }
+
+    a:last-of-type {
+        display: inline-block;
+        padding: 1rem 2rem;
+        max-width: none;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    section {
+        padding: 2.5rem 0.9rem 3rem;
+        text-align: left;
+    }
+
+    section h1 {
+        font-size: 2.4rem;
+        line-height: 1.05;
+        max-width: 18rem;
+        width: 100%;
+        margin: 0 auto 1rem;
+        word-break: break-word;
+    }
+
+    section h1 span {
+        display: block;
+    }
+
+    section p {
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 18rem;
+        width: 100%;
+        margin: 0 auto 1.5rem;
+        padding: 0;
+    }
+
+    a.btn,
+    a:last-of-type {
+        display: block;
+        width: 100%;
+        max-width: 18rem;
+        padding: 0.9rem 1rem;
+        text-align: center;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+}
+
+/* Desktop and larger screens */
+@media screen and (min-width: 1037px) {
+    header {
+        padding: 1.5rem 0;
+    }
+
+    header .inner-container {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    header nav {
+        order: 2;
+        width: auto;
+        margin-top: 0;
+        flex: 1;
+    }
+
+    .menu {
+        width: auto;
+        margin: 0 auto;
+        justify-content: center;
+        gap: 2.5rem;
+        flex-wrap: nowrap;
+    }
+
+    section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 2.5rem;
+        padding: 5rem 2rem;
+        text-align: left;
+    }
+
+    .hero-content {
+        flex: 1 1 100%;
+        max-width: 64rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    section h1 {
+        font-size: 3.5rem;
+        line-height: 1.05;
+        max-width: 40rem;
+        margin: 0;
+    }
+
+    section p {
+        font-size: 1.2rem;
+        line-height: 1.9;
+        max-width: 40rem;
+        margin: 0;
+    }
+
+    a:last-of-type {
+        display: inline-block;
+        padding: 1rem 2rem;
+        max-width: none;
+        margin: 0;
+    }
+}
